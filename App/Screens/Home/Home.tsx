@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import { HomeScreenNavigationProp } from '../../Types';
 import { Home as HomeC } from '../../Containers';
-
 type Props = {
   navigation: HomeScreenNavigationProp;
 };

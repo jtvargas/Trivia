@@ -12,9 +12,10 @@ import {
   Poppins_100Thin,
 } from '@expo-google-fonts/poppins';
 import { NavigationContainer } from '@react-navigation/native';
+import { I18nextProvider } from 'react-i18next';
 import { loadAssets, configureFonts } from './Utils';
 import NavigationRoot from './Navigation';
-import { Theme } from './Core';
+import { Theme, i18n } from './Core';
 
 const paperTheme = {
   ...DefaultTheme,
@@ -53,9 +54,11 @@ const App = () => {
   } else {
     return (
       <PaperProvider theme={paperTheme}>
-        <NavigationContainer>
-          <NavigationRoot />
-        </NavigationContainer>
+        <I18nextProvider i18n={i18n}>
+          <NavigationContainer>
+            <NavigationRoot />
+          </NavigationContainer>
+        </I18nextProvider>
       </PaperProvider>
     );
   }
