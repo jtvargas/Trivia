@@ -1,9 +1,7 @@
 import React, { useCallback } from 'react';
-import { View, Text } from 'react-native';
-import { ScaledSheet } from 'react-native-size-matters';
-import { Button } from 'react-native-paper';
 import { CommonActions } from '@react-navigation/native';
 import { ResultsScreenNavigationProp } from '../../Types';
+import { Results as ResultsC } from '../../Containers';
 
 type Props = {
   navigation: ResultsScreenNavigationProp;
@@ -18,23 +16,7 @@ const Results = (props: Props) => {
     return navigation.dispatch(CommonActions.reset(RESET_STACK_TO_HOME));
   }, []);
 
-  return (
-    <View style={styles.container}>
-      <Text>Results</Text>
-      <Button icon="camera" mode="contained" onPress={goToHomeScreen}>
-        Press me
-      </Button>
-    </View>
-  );
+  return <ResultsC onGoToHomeScreenPress={goToHomeScreen} />;
 };
-
-const styles = ScaledSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default Results;
