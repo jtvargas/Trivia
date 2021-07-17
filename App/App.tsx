@@ -1,8 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState, useCallback } from 'react';
-import { Text, View } from 'react-native';
-import { ScaledSheet } from 'react-native-size-matters';
-import { Provider as PaperProvider } from 'react-native-paper';
+import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
 import AppLoading from 'expo-app-loading';
 import {
   useFonts,
@@ -11,11 +8,24 @@ import {
   Poppins_500Medium_Italic,
   Poppins_500Medium,
   Poppins_700Bold,
+  Poppins_300Light,
+  Poppins_100Thin,
 } from '@expo-google-fonts/poppins';
-import { Ionicons } from '@expo/vector-icons';
-import { loadAssets } from './Utils';
+import { NavigationContainer } from '@react-navigation/native';
+import { I18nextProvider } from 'react-i18next';
+import { loadAssets, configureFonts } from './Utils';
+import NavigationRoot from './Navigation';
+import { Theme, i18n } from './Core';
 
-import { Button } from 'react-native-paper';
+const paperTheme = {
+  ...DefaultTheme,
+  roundness: 2,
+  colors: {
+    ...DefaultTheme.colors,
+    ...Theme.colors,
+  },
+  fonts: configureFonts(),
+};
 
 const App = () => {
   const [isAssetsLoaded, setIsAssetsLoaded] = useState(false);
@@ -25,6 +35,8 @@ const App = () => {
     Poppins_500Medium_Italic,
     Poppins_500Medium,
     Poppins_700Bold,
+    Poppins_300Light,
+    Poppins_100Thin,
   });
 
   const onFinishLoading = useCallback(() => {
@@ -41,56 +53,15 @@ const App = () => {
     );
   } else {
     return (
-      <PaperProvider>
-        <View style={styles.container}>
-          <Text style={styles.textRegular}>TriviaAPP!</Text>
-          <Text style={styles.textRegularItalic}>TriviaAPP!</Text>
-          <Text style={styles.textMedium}>TriviaAPP!</Text>
-          <Text style={styles.textMediumItalic}>TriviaAPP!</Text>
-          <Text style={styles.textBold}>TriviaAPP!</Text>
-          <View style={styles.box} />
-          <Ionicons name="md-checkmark-circle" size={32} color="green" />
-          <StatusBar style="auto" />
-          <Button
-            icon="camera"
-            mode="contained"
-            onPress={() => console.log('Pressed')}
-          >
-            Press me
-          </Button>
-        </View>
+      <PaperProvider theme={paperTheme}>
+        <I18nextProvider i18n={i18n}>
+          <NavigationContainer>
+            <NavigationRoot />
+          </NavigationContainer>
+        </I18nextProvider>
       </PaperProvider>
     );
   }
 };
-
-const styles = ScaledSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    height: '100@s',
-    width: '100@s',
-    backgroundColor: 'blue',
-  },
-  textMedium: {
-    fontFamily: 'Poppins_500Medium',
-  },
-  textRegular: {
-    fontFamily: 'Poppins_400Regular',
-  },
-  textRegularItalic: {
-    fontFamily: 'Poppins_400Regular_Italic',
-  },
-  textMediumItalic: {
-    fontFamily: 'Poppins_500Medium_Italic',
-  },
-  textBold: {
-    fontFamily: 'Poppins_700Bold',
-  },
-});
 
 export default App;
