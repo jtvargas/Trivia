@@ -1,46 +1,8 @@
+import { FontsConfig } from '../../Types';
 import { configureFonts as configureFontsRNP } from 'react-native-paper';
 
-const fontConfig = {
-  ios: {
-    regular: {
-      fontFamily: 'Poppins_400Regular',
-      fontWeight: 'normal',
-    },
-    medium: {
-      fontFamily: 'Poppins_500Medium',
-      fontWeight: 'normal',
-    },
-    light: {
-      fontFamily: 'Poppins_300Light',
-      fontWeight: 'normal',
-    },
-    thin: {
-      fontFamily: 'Poppins_100Thin',
-      fontWeight: 'normal',
-    },
-  },
-  android: {
-    regular: {
-      fontFamily: 'Poppins_400Regular',
-      fontWeight: 'normal',
-    },
-    medium: {
-      fontFamily: 'Poppins_500Medium',
-      fontWeight: 'normal',
-    },
-    light: {
-      fontFamily: 'Poppins_300Light',
-      fontWeight: 'normal',
-    },
-    thin: {
-      fontFamily: 'Poppins_100Thin',
-      fontWeight: 'normal',
-    },
-  },
-};
-
-const configureFonts = () => {
-  return configureFontsRNP(fontConfig);
+const configureFonts = (fonts: FontsConfig) => {
+  return configureFontsRNP(fonts);
 };
 
 export default configureFonts;
