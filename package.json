@@ -41,6 +41,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "husky": "^7.0.0",
     "jest-expo": "^42.0.1",
+    "lint-staged": "^11.0.1",
     "prettier": "^2.3.2",
     "react-i18next": "^11.11.3",
     "react-native-size-matters": "^0.4.0",
@@ -51,6 +52,11 @@
     "hooks": {
       "pre-push": "yarn test"
     }
+  },
+  "lint-staged": {
+    "App/**/*.{js,jsx,ts,tsx}": [
+      "yarn make:pretty"
+    ]
   },
   "jest": {
     "preset": "jest-expo",
