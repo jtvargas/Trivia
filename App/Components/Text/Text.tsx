@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
+import { TextProps } from 'react-native';
 import { Text as TextRNP, withTheme } from 'react-native-paper';
 import { scale, ScaledSheet } from 'react-native-size-matters';
 import { Theme as ThemeType, FontSize } from '../../Types';
 import { Theme } from '../../Core';
 
-export interface Props {
+export interface Props extends Partial<TextProps> {
   theme: ThemeType;
   medium?: boolean;
   regular?: boolean;
@@ -14,6 +15,7 @@ export interface Props {
   color?: string;
   isUpperCase?: boolean;
   isCapitalize?: boolean;
+  textAlignment?: 'auto' | 'left' | 'right' | 'center' | 'justify';
 }
 
 const Text = (props: Props) => {
@@ -23,6 +25,7 @@ const Text = (props: Props) => {
     regular,
     light,
     size = 'body',
+    textAlignment = 'auto',
     color,
     label = 'Text',
     isUpperCase = false,
@@ -58,14 +61,20 @@ const Text = (props: Props) => {
     return isCapitalize ? styles.capitalize : null;
   }, [isCapitalize]);
 
+  const textAlignStyle = useMemo(() => {
+    return { textAlign: textAlignment };
+  }, [textAlignment]);
+
   return (
     <TextRNP
+      {...props}
       style={[
         fontStyle,
         textSizeStyle,
         textColorStyle,
         textCapitalizeStyle,
         textUpperCaseStyle,
+        textAlignStyle,
       ]}
     >
       {label}
