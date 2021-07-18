@@ -16,15 +16,16 @@ import { I18nextProvider } from 'react-i18next';
 import { loadAssets, configureFonts } from './Utils';
 import NavigationRoot from './Navigation';
 import { Theme, i18n } from './Core';
+import { FontsConfig } from './Types';
 
 const paperTheme = {
   ...DefaultTheme,
-  roundness: 2,
+  roundness: 4,
   colors: {
     ...DefaultTheme.colors,
     ...Theme.colors,
   },
-  fonts: configureFonts(),
+  fonts: configureFonts(Theme.fonts as FontsConfig),
 };
 
 const App = () => {

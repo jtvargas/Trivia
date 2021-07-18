@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
-import { Button } from '../../Components';
-import { useTranslation } from 'react-i18next';
+import { Button, Text } from '../../Components';
 
 interface Props {
   onBeginPress: () => void;
@@ -10,15 +9,16 @@ interface Props {
 
 const Home = (props: Props) => {
   const { onBeginPress } = props;
-  const { t } = useTranslation();
   return (
     <View style={styles.container}>
-      <Text style={styles.textRegular}>
-        {t('Home.WelcomeToTriviaChallenge')}
-      </Text>
-      <Button icon="camera" mode="contained" onPress={onBeginPress}>
-        Press me
-      </Button>
+      <Text label={'hello'} size={'largeTitle'} />
+      <Button
+        onPress={onBeginPress}
+        label={'Press Me!'}
+        textProps={{
+          size: 'title2',
+        }}
+      />
     </View>
   );
 };
