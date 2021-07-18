@@ -1,6 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { QuizScreenNavigationProp } from '../../Types';
 import { Quiz as QuizC } from '../../Containers';
+import { QuizData } from '../../Context';
 
 type Props = {
   navigation: QuizScreenNavigationProp;
@@ -8,6 +9,9 @@ type Props = {
 
 const Quiz = (props: Props) => {
   const { navigation } = props;
+  const { quizData } = useContext(QuizData.Context);
+
+  console.log({ quizData });
   const goToResultsScreen = useCallback(() => {
     return navigation.push('Results', { answers: [] });
   }, []);

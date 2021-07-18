@@ -3,6 +3,8 @@
         "WelcomeToTriviaChallenge": "Welcome to the Trivia Challenge!",
         "questionInfo": "You will be presented with 10 True of False questions",
         "questionScore": "Can you score 100%?",
-        "begin": "Begin!"
+        "begin": "Begin!",
+        "loadingQuestions": "Loading questions...",
+        "errorState": "The data could not be retrieved at this moment, retry again."
     }
 }

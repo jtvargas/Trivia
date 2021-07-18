@@ -17,6 +17,7 @@ import { loadAssets, configureFonts } from './Utils';
 import NavigationRoot from './Navigation';
 import { Theme, i18n } from './Core';
 import { FontsConfig } from './Types';
+import { QuizData } from './Context';
 
 const paperTheme = {
   ...DefaultTheme,
@@ -56,9 +57,11 @@ const App = () => {
     return (
       <PaperProvider theme={paperTheme}>
         <I18nextProvider i18n={i18n}>
-          <NavigationContainer>
-            <NavigationRoot />
-          </NavigationContainer>
+          <QuizData.Provider>
+            <NavigationContainer>
+              <NavigationRoot />
+            </NavigationContainer>
+          </QuizData.Provider>
         </I18nextProvider>
       </PaperProvider>
     );

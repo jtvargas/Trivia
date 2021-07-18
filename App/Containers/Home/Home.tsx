@@ -2,15 +2,18 @@ import React from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { ScaledSheet } from 'react-native-size-matters';
+import { Snackbar } from 'react-native-paper';
 import { Theme, i18n } from '../../Core';
 import { Button, Text } from '../../Components';
 
 interface Props {
   onBeginPress: () => void;
+  isDisabledButton: boolean;
+  isLoading: boolean;
 }
 
 const Home = (props: Props) => {
-  const { onBeginPress } = props;
+  const { onBeginPress, isDisabledButton, isLoading } = props;
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style={'light'} />
@@ -34,10 +37,18 @@ const Home = (props: Props) => {
             size={'title3'}
             textAlignment={'center'}
           />
+          {isLoading ? (
+            <Text
+              label={i18n.t('Home.loadingQuestions')}
+              size={'body'}
+              textAlignment={'center'}
+            />
+          ) : null}
           <Button
             label={i18n.t('Home.begin')}
             onPress={onBeginPress}
             textProps={{ medium: true }}
+            isDisabled={isDisabledButton}
           />
         </View>
       </View>
