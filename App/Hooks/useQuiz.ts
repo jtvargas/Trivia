@@ -15,7 +15,6 @@ const useQuiz = ({ questions }: { questions: [] }) => {
   };
 
   return { answers, setAnswers, currentIndexQuestion };
-  // return [{ answers, setAnswers: handleSetAnswer }, currentIndexQuestion];
 };
 
 export { useQuiz };
