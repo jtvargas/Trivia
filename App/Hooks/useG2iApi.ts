@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const G2I_API_URL =
+  'https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean';
+
 const useG2iApi = () => {
   const [data, setData] = useState([]);
-  const [url, setUrl] = useState(
-    'https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean',
-  );
+  const [url, setUrl] = useState(G2I_API_URL);
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
