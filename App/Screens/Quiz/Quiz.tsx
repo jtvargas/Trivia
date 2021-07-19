@@ -8,12 +8,10 @@ type Props = {
   navigation: QuizScreenNavigationProp;
 };
 
-// TODO: clean code and tests
-
 const Quiz = (props: Props) => {
   const { navigation } = props;
   const { quizData } = useContext(QuizData.Context);
-  const [{ setAnswers, answers }, currentIndexQuestion] = useQuiz({
+  const { answers, setAnswers, currentIndexQuestion } = useQuiz({
     questions: quizData,
   });
   const currentIndex = currentIndexQuestion + 1;

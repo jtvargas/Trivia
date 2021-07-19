@@ -12,9 +12,11 @@ type Props = {
   navigation: HomeScreenNavigationProp;
 };
 
+const noAction = () => null;
+
 const Home = (props: Props) => {
   const { navigation } = props;
-  const [{ data, isLoading, hasError }, refetch] = useG2iApi();
+  const { data, isLoading, hasError, refetchData } = useG2iApi();
   const { setQuizData } = useContext(QuizData.Context);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ const Home = (props: Props) => {
   }, []);
 
   const tryAgainPress = useCallback(() => {
-    return refetch?.();
+    return refetchData?.();
   }, []);
 
   return (
@@ -35,7 +37,7 @@ const Home = (props: Props) => {
         visible={hasError}
         duration={0}
         wrapperStyle={styles.snackbar}
-        onDismiss={() => null}
+        onDismiss={noAction}
         action={{
           label: 'RETRY',
           onPress: tryAgainPress,

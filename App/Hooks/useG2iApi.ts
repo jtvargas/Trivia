@@ -43,7 +43,7 @@ const useG2iApi = () => {
     }
   };
 
-  return [{ data, isLoading, hasError }, refetchData];
+  return { data, isLoading, hasError, refetchData };
 };
 
 export { useG2iApi };

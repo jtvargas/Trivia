@@ -7,7 +7,7 @@ import { Button, Text, QuizResultList } from '../../Components';
 import { Answer, Question } from '../../Types';
 
 interface Props {
-  onBeginPress: () => void;
+  onPlayAgainPress: () => void;
   isDisabledButton: boolean;
   isLoading: boolean;
   answers: Answer;

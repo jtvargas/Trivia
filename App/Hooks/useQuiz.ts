@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Answer, Question } from '../Types';
 
 const useQuiz = ({ questions }: { questions: [] }) => {
   const [currentIndexQuestion, setCurrentIndexQuestion] = useState(0);
   const [answers, setCurrentQuestionAnswer] = useState<Answer>({});
 
-  const handleSetAnswer = (answer: string) => {
+  const setAnswers = (answer: string) => {
     const currentQuestion: Question = questions[currentIndexQuestion];
     setCurrentIndexQuestion(currentIndexQuestion + 1);
     setCurrentQuestionAnswer(prev => ({
@@ -14,7 +14,8 @@ const useQuiz = ({ questions }: { questions: [] }) => {
     }));
   };
 
-  return [{ answers, setAnswers: handleSetAnswer }, currentIndexQuestion];
+  return { answers, setAnswers, currentIndexQuestion };
+  // return [{ answers, setAnswers: handleSetAnswer }, currentIndexQuestion];
 };
 
 export { useQuiz };

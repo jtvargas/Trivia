@@ -11,6 +11,8 @@ interface Props {
   isLoading: boolean;
 }
 
+const BUTTON_TEXT_PROPS = { medium: true };
+
 const Home = (props: Props) => {
   const { onBeginPress, isDisabledButton, isLoading } = props;
   return (
@@ -46,7 +48,7 @@ const Home = (props: Props) => {
           <Button
             label={i18n.t('Home.begin')}
             onPress={onBeginPress}
-            textProps={{ medium: true }}
+            textProps={BUTTON_TEXT_PROPS}
             isDisabled={isDisabledButton}
           />
         </View>
