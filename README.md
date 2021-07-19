@@ -11,10 +11,10 @@ A 10 question, true or false, trivia app with React Native.
 
 ### Run the app (Simulator)
 
-####iOS
+**iOS**
 - Run `yarn ios`
 
-####Android
+**Android**
 - Run `yarn android`
 
 ### Run the app (Device)
