@@ -11,7 +11,7 @@ it('should render the question and icon correctly if the answer is correct', () 
   );
 
   expect(getByText(QUESTION)).toBeTruthy();
-  expect(getByTestId(`ICON_add_ID`)).toBeTruthy();
+  expect(getByTestId(`ICON_checkmark-sharp_ID`)).toBeTruthy();
 });
 
 it('should render the question and icon correctly if the answer is wrong', () => {
