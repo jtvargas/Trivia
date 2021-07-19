@@ -20,3 +20,6 @@ A 10 question, true or false, trivia app with React Native.
 ### Run the app (Device)
 
 After start the server (`yarn start`) in the console will prompt a QR Code, you need to scan this code with your device camera
+
+## Run tests
+- `yarn test`
