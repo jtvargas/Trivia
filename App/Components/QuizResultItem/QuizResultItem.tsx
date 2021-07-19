@@ -11,7 +11,7 @@ interface Props {
 }
 
 const RESULT_ICON_SIZE = 32;
-const ICON_NAME_CORRECT_ANSWER = 'add';
+const ICON_NAME_CORRECT_ANSWER = 'checkmark-sharp';
 const ICON_NAME_WRONG_ANSWER = 'close';
 
 const QuizResultItem = (props: Props) => {
@@ -37,7 +37,14 @@ const QuizResultItem = (props: Props) => {
   return (
     <View style={styles.container}>
       {renderResultIcon()}
-      <Text label={question} size={'body'} medium={true} />
+      <View style={styles.questionContainer}>
+        <Text
+          label={question}
+          size={'body'}
+          medium={true}
+          textAlignment={'left'}
+        />
+      </View>
     </View>
   );
 };
@@ -47,6 +54,9 @@ const styles = ScaledSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
+  },
+  questionContainer: {
+    flex: 1,
   },
   iconContainer: { ...Theme.spacers.MR_2 },
 });

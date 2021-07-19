@@ -9,7 +9,7 @@ interface Question {
 }
 
 interface Answer {
-  [x: string]: boolean;
+  [x: string]: string;
 }
 
 export { Question, Answer };

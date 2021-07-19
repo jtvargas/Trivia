@@ -2,7 +2,6 @@ import React from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { ScaledSheet } from 'react-native-size-matters';
-import { Snackbar } from 'react-native-paper';
 import { Theme, i18n } from '../../Core';
 import { Button, Text } from '../../Components';
 

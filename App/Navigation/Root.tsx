@@ -12,6 +12,7 @@ const NAVIGATOR_OPTIONS: StackNavigationOptions = {
   headerShown: false,
 };
 
+const SCREEN_OPTIONS = { gestureEnabled: false };
 const Root = () => {
   return (
     <RootStack.Navigator
@@ -19,8 +20,12 @@ const Root = () => {
       screenOptions={NAVIGATOR_OPTIONS}
     >
       <RootStack.Screen name="Home" component={Home} />
-      <RootStack.Screen name="Quiz" component={Quiz} />
-      <RootStack.Screen name="Results" component={Results} />
+      <RootStack.Screen name="Quiz" component={Quiz} options={SCREEN_OPTIONS} />
+      <RootStack.Screen
+        name="Results"
+        component={Results}
+        options={SCREEN_OPTIONS}
+      />
     </RootStack.Navigator>
   );
 };

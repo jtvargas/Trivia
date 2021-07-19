@@ -1,5 +1,5 @@
 import { createHash, decode } from '../../Utils';
-import { Question, ResultAPI } from '../../Types';
+import { Answer, Question, ResultAPI } from '../../Types';
 
 const getQuestionId = ({
   question,
@@ -31,6 +31,23 @@ const getQuestions = (results: Array<ResultAPI>): Question[] => {
   }) as unknown as Question[];
 };
 
+const getScore = ({
+  answers,
+  questions,
+}: {
+  answers: Answer;
+  questions: Question[];
+}): number => {
+  return questions.reduce((score: number, question) => {
+    const questionId = question.id;
+    const questionAnswer = answers[questionId];
+    const correctAnswer = question.correctAnswer;
+
+    return correctAnswer === questionAnswer ? score + 1 : score;
+  }, 0);
+};
+
 export default {
   getQuestions,
+  getScore,
 };
