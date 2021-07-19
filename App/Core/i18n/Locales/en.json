@@ -1,5 +1,26 @@
 {
     "Home":{
-        "WelcomeToTriviaChallenge": "Welcome to the Trivia Challenge!"
+        "WelcomeToTriviaChallenge": "Welcome to the Trivia Challenge!",
+        "questionInfo": "You will be presented with 10 True or False questions",
+        "questionScore": "Can you score 100%?",
+        "begin": "Begin!",
+        "loadingQuestions": "Loading questions...",
+        "errorState": "The data could not be retrieved at this moment, retry again."
+    },
+    "Quiz": {
+        "alertGoBack": "Are you sure?",
+        "alertGoBackYesAction": "Yes, Go back",
+        "alertGoBackNoAction": "Don't leave",
+        "alertGoBackInfo": "You already has started to answer the trivia, going back will discard the questions already answered",
+        "answers": {
+            "boolean": {
+                "true": "True",
+                "false": "False"
+            }
+        }
+    },
+    "Results": {
+        "playAgain": "Play Again!",
+        "youScored": "You Scored:"
     }
 }

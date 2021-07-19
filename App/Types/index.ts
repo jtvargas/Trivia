@@ -5,6 +5,8 @@ import {
   ResultsScreenNavigationProp,
 } from './Navigation';
 import { Theme, FontsConfig, FontSize } from './Theme';
+import { Result } from './QuizDataAPI';
+import { Answer, Question } from './Quiz';
 
 export type {
   RootStackParamList,
@@ -14,4 +16,7 @@ export type {
   Theme,
   FontsConfig,
   FontSize,
+  Result as ResultAPI,
+  Answer,
+  Question,
 };

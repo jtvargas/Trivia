@@ -9,6 +9,7 @@ interface Props {
   theme: Theme;
   onPress: () => void;
   isFullWidth?: boolean;
+  isDisabled?: boolean;
   isUpperCase?: boolean;
   textProps?: Partial<TextProps>;
 }
@@ -21,6 +22,7 @@ const Button = (props: Props) => {
     isFullWidth = false,
     isUpperCase = true,
     textProps,
+    isDisabled = false,
   } = props;
   const { colors } = theme;
 
@@ -35,6 +37,7 @@ const Button = (props: Props) => {
       contentStyle={[fullWidthStyleMemo]}
       color={colors.accent}
       uppercase={isUpperCase}
+      disabled={isDisabled}
     >
       <Text {...textProps} label={label} />
     </ButtonRNP>

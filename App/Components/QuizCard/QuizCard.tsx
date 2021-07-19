@@ -12,7 +12,6 @@ interface Props {
 }
 
 const CARD_HEIGHT = scale(284);
-const CARD_WIDTH = scale(335);
 const BORDER_RADIUS = scale(25);
 
 const QuizCard = (props: Props) => {
@@ -38,7 +37,7 @@ const styles = ScaledSheet.create({
   container: {
     backgroundColor: Theme.colors.background,
     height: CARD_HEIGHT,
-    width: CARD_WIDTH,
+    width: '100%',
     borderRadius: BORDER_RADIUS,
     alignContent: 'center',
     justifyContent: 'center',
