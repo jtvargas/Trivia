@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const G2I_API_URL =
+// This Variable need to be in a .env file, for demo purpose is declared this way
+const QUESTION_API_URL =
   'https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean';
 
-const useG2iApi = () => {
+const useQuestionDataAPI = () => {
   const [data, setData] = useState([]);
-  const [url, setUrl] = useState(G2I_API_URL);
+  const [url, setUrl] = useState(QUESTION_API_URL);
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -47,4 +48,4 @@ const useG2iApi = () => {
   return { data, isLoading, hasError, refetchData };
 };
 
-export { useG2iApi };
+export { useQuestionDataAPI };

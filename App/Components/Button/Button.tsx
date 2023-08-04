@@ -34,7 +34,7 @@ const Button = (props: Props) => {
     <ButtonRNP
       mode="contained"
       onPress={onPress}
-      contentStyle={[fullWidthStyleMemo]}
+      contentStyle={[styles.container, fullWidthStyleMemo]}
       color={colors.accent}
       uppercase={isUpperCase}
       disabled={isDisabled}
@@ -45,6 +45,9 @@ const Button = (props: Props) => {
 };
 
 const styles = ScaledSheet.create({
+  container: {
+    height: '50@s',
+  },
   fullWidth: {
     width: '100%',
   },

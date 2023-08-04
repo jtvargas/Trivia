@@ -5,7 +5,7 @@ import { HomeScreenNavigationProp } from '../../Types';
 import { Home as HomeC } from '../../Containers';
 import { QuizData } from '../../Context';
 import { Quiz } from '../../Models';
-import { useG2iApi } from '../../Hooks';
+import { useQuestionDataAPI } from '../../Hooks';
 import { i18n } from '../../Core';
 
 type Props = {
@@ -16,7 +16,7 @@ const noAction = () => null;
 
 const Home = (props: Props) => {
   const { navigation } = props;
-  const { data, isLoading, hasError, refetchData } = useG2iApi();
+  const { data, isLoading, hasError, refetchData } = useQuestionDataAPI();
   const { setQuizData } = useContext(QuizData.Context);
 
   useEffect(() => {

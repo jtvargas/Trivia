@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { View } from 'react-native';
+import { Chip } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 import { ScaledSheet } from 'react-native-size-matters';
 import { Theme } from '../../Core';
@@ -8,6 +9,8 @@ import Text from '../Text';
 interface Props {
   isCorrect: boolean;
   question: string;
+  currentAnswer: string;
+  correctAnswer: string;
 }
 
 const RESULT_ICON_SIZE = 32;
@@ -15,7 +18,7 @@ const ICON_NAME_CORRECT_ANSWER = 'checkmark-sharp';
 const ICON_NAME_WRONG_ANSWER = 'close';
 
 const QuizResultItem = (props: Props) => {
-  const { isCorrect, question } = props;
+  const { isCorrect, question, currentAnswer, correctAnswer } = props;
   const renderResultIcon = useCallback(() => {
     const iconName = isCorrect
       ? ICON_NAME_CORRECT_ANSWER
@@ -44,6 +47,9 @@ const QuizResultItem = (props: Props) => {
           medium={true}
           textAlignment={'left'}
         />
+        <View style={styles.answerChipContainer}>
+          <Chip style={styles.answerChip}>Picked: {currentAnswer}</Chip>
+        </View>
       </View>
     </View>
   );
@@ -57,6 +63,12 @@ const styles = ScaledSheet.create({
   },
   questionContainer: {
     flex: 1,
+  },
+  answerChipContainer: {
+    flexDirection: 'row',
+  },
+  answerChip: {
+    backgroundColor: Theme.colors.secondary,
   },
   iconContainer: { ...Theme.spacers.MR_2 },
 });
