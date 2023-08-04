@@ -15,10 +15,9 @@ Mobile application developed with **React Native** and **Expo**. It provides a 1
 - [License](#license)
 
 ## Screenshots
-<img src="/assets/Home.png"  width="150" height="300">
-<img src="/assets/QuizScreen.png"  width="150" height="300">
-<img src="/assets/QuizResult.png"  width="150" height="300">
-
+<img src="./assets/Home.png"  width="150" height="300">
+<img src="./assets/QuizScreen.png"  width="150" height="300">
+<img src="./assets/QuizResult.png"  width="150" height="300">
 
 ## Structure
 The architectural blueprint for this app closely mirrors the **Atomic Design Pattern**.
