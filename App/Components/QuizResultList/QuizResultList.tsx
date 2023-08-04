@@ -21,6 +21,8 @@ const QuizResultList = (props: Props) => {
           <QuizResultItem
             isCorrect={answers[item.id] === item.correctAnswer}
             question={item.question}
+            currentAnswer={`${answers[item.id]}`}
+            correctAnswer={`${item.correctAnswer}`}
           />
         </View>
       );
